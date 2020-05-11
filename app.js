@@ -11,7 +11,7 @@ const app = express();
 const index = require('./routes/index');
 const users = require('./routes/users');
 const doc = require('./routes/doc');
-const config = require('./routes/config')
+const config = require('./config')
 //**********************引入路由文件结束**********************//
 
 

@@ -3,7 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const marked = require('marked');
 const path = require('path');
-const config = require('./config')
+const config = require('../config')
 
 router.get("/:docName", function (req, res, next) {
     console.log('name:' + req.params.docName);

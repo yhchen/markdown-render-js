@@ -7,32 +7,23 @@
 
 # 准备工作
 ## 安装marked
-> npm install marked --save
+git clone https://github.com/yhchen/markdown-render-js
+cd markdown-render-js
+npm install
 
 # 关键步骤
-## doc.js
+## config.js
 ``` Javascript
-const express = require('express');
-const router = express.Router();
-const fs = require('fs');
-const marked = require('marked');
+const path = require('path');
 
-router.get("/:docName", function(req, res, next){
-    console.log('name:' + req.params.docName);
-    fs.readFile(__dirname+'/../public/doc/'+ req.params.docName +'.md', function(err, data){
-        if(err){
-            console.log("文件不存在！");
-            res.send("文件不存在！");
-        }else{
-            console.log(data);
-            htmlStr = marked(data.toString());
-            res.render('doc', {doc: htmlStr});
-        }
-    });
-});
+var config = {};
+//                                        ↓↓↓修改为你自己的路径↓↓↓
+config.RelativePath = path.join(__dirname, '/public/markdown/'/*replace to your directory...*/);
+console.log('relative path:' + config.RelativePath);
 
-module.exports = router;
+module.exports = config;
 ```
+
 ## doc.ejs
 ``` HTML
 <!DOCTYPE html>
@@ -75,5 +66,4 @@ app.use('/doc', doc);
 ```
 
 # Demo演示
-![](http://i.imgur.com/ODAYGbi.png)<br>
-![](http://i.imgur.com/g0CeOaR.png)
+To be continue...
