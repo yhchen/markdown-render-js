@@ -19,17 +19,6 @@ router.get("/:docName", function (req, res, next) {
                 res.render('doc', { doc: htmlStr });
             }
         });
-    }
-    else if (req.params.docName == "") {
-        fs.readFile(config.RelativePath + "index.md", function (err, data) {
-            if (err) {
-            } else {
-                console.log(data);
-                htmlStr = marked(data.toString());
-                // console.log(htmlStr);
-                res.render('doc', { doc: htmlStr });
-            }
-        });
     } else {
         console.log(config.RelativePath + req.url);
         res.sendFile(config.RelativePath + req.url);
